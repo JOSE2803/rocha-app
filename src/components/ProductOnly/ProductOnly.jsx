@@ -7,7 +7,7 @@ function ProductOnly({ data }) {
 
   console.log(typeof data);
 
-  const { B1_TXTPRO2, ZTD_NOME, B1_PRV1, B1_COD, B1_DESC, B1_XDESC, B2_QATU } = data;
+  const { B1_TXTPRO2, ZTD_NOME, B1_PRV1, B1_COD, B1_DESC, B1_XDESC, B1_TXTPROD } = data;
 
   return (    
 
@@ -32,7 +32,7 @@ function ProductOnly({ data }) {
             <h2 className="product-extra-title">{B1_XDESC}</h2>
           </div>
           <div className="contents-bottom">
-            <h2 className="product-quantity">Saldo: {B2_QATU}</h2> 
+            <h2 className="product-description">{B1_TXTPROD}</h2> 
           </div>  
         </div>
       </div>
@@ -55,6 +55,7 @@ ProductOnly.propTypes = {
     B1_DESC: propTypes.string,
     B1_XDESC: propTypes.string,
     B2_QATU: propTypes.number,
+    B1_TXTPROD: propTypes.string,
   }).isRequired,
 };
 

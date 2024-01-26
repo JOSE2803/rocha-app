@@ -1,5 +1,9 @@
 .products-search {
+  max-width: 1200px;
+  margin: 0 auto; /* Centralizar o conteúdo na página */
+  padding: 20px; /* Adicionar algum espaço ao redor do conteúdo */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px
+  gap: 20px;
 }
+

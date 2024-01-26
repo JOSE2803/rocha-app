@@ -9,15 +9,13 @@ function Product() {
 
   const { products, loading, onlyProduct } = useContext(AppContext);  
 
-  console.log(products, loading, onlyProduct);
-
   return ( 
     (loading && <Loading /> ) || (
       <section className="products">
         {onlyProduct ? (
           products.map((product) => <ProductOnly key={product.B1_COD} data={product}/>)
         ) : (
-          products.map((product) => <ProductsSearch key={product.B1_COD} data={product}/>)
+          <ProductsSearch />
         )}
       </section>)
   );
