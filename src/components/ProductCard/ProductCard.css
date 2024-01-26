@@ -38,7 +38,7 @@
 }
 
 .card__title-extra {
-  font-size: 10px;
+  font-size: 12px;
   color: rgba(0, 0, 0, 0.5);
   display: block;
   margin-bottom: 10px;
@@ -75,8 +75,19 @@
   display: flex;
 }
 
-.card___image {
+.image-container {
   width: 100%;
   min-height: 250px;
-  display: block;
+  max-height: 250px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.card___image {
+  width: 100%; /* A imagem ocupará 100% da largura do contêiner */
+  height: auto; /* A altura será ajustada automaticamente para manter as proporções */
+  display: block; /* Remove espaço extra abaixo da imagem devido à exibição inline */
 }

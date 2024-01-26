@@ -15,11 +15,14 @@ function ProductCard({ data }) {
   return (
     <section className="product-card">
 
-      <img
-        src={B1_TXTPRO2 ? B1_TXTPRO2 : 'https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif'}
-        alt="product"
-        className="card___image"
-      />      
+      <div className="image-container">
+        <img
+          src={B1_TXTPRO2 ? B1_TXTPRO2 : 'https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif'}
+          alt="product"
+          className="card___image"
+        /> 
+      </div>
+     
 
       <div className="card__infos">
         
