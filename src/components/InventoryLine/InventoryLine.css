@@ -1,0 +1,18 @@
+.inventory-line {
+  display: grid;
+  border: 1px solid #ddd;
+  grid-template-columns: repeat(3, 1fr); /* Cria três colunas de largura igual */
+  gap: 16px; /* Espaçamento entre os itens */
+}
+
+.inventory-branch {
+  min-width: 100px;
+}
+
+.inventory-amount {
+  min-width: 30;
+}
+
+.inventory-net {
+  min-width: 30;
+}

@@ -7,13 +7,13 @@ import ProductsSearch from '../ProductsSearch/ProductsSearch';
 
 function Product() {
 
-  const { products, loading, onlyProduct } = useContext(AppContext);  
+  const { products, loading, onlyProduct } = useContext(AppContext);
 
-  return ( 
-    (loading && <Loading /> ) || (
+  return (
+    (loading && <Loading />) || (
       <section className="products">
         {onlyProduct ? (
-          products.map((product) => <ProductOnly key={product.B1_COD} data={product}/>)
+          products.map((product) => <ProductOnly key={product.B1_COD} data={product} />)
         ) : (
           <ProductsSearch />
         )}

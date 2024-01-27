@@ -2,11 +2,12 @@ import React, { useState, useContext } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import './SearchBar.css';
 import { searchProducts, getProduct } from '../../api/fetchProducts';
+import { getInventoryByCode } from '../../api/fetchInventories';
 import AppContext from '../../context/AppContext';
 
 function SearchBar() {
 
-  const { setProducts, setLoading, setOnlyProduct } = useContext(AppContext);
+  const { setProducts, setLoading, setOnlyProduct, setInventories } = useContext(AppContext);
   const [searchValue, setSearchValue] = useState('');
 
   const handleSearch = async (event) => {
@@ -23,7 +24,9 @@ function SearchBar() {
       setOnlyProduct(false);
     }
     else{
+      const inventory = await getInventoryByCode(searchValue);
       setProducts(product);
+      setInventories(inventory);
       setOnlyProduct(true);
     }
     
@@ -32,7 +35,9 @@ function SearchBar() {
   };
 
   return (
+
     <form className="search-bar" onSubmit={handleSearch}>
+
       <input
         type="search"
         value={searchValue}

@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import propTypes from 'prop-types';
 import './ProductOnly.css';
 import formatCurrency from '../../utils/formatCurrency';
+import AppContext from '../../context/AppContext';
+import InventoryLine from '../InventoryLine/InventoryLine';
 
 function ProductOnly({ data }) {
 
-  console.log(typeof data);
-
   const { B1_TXTPRO2, ZTD_NOME, B1_PRV1, B1_COD, B1_DESC, B1_XDESC, B1_TXTPROD } = data;
+  const { inventories } = useContext(AppContext);
+
 
   return (    
 
@@ -37,8 +39,11 @@ function ProductOnly({ data }) {
         </div>
       </div>
 
-      <div className="container-similares">
-        AQUI FICARAM OS SIMILARES
+      <div className="container-infos">
+        <div className="container-inventories">
+          <h2 className="inventory-title">Saldos</h2>
+          {inventories.map((inventory) => <InventoryLine key={inventory.R_E_C_N_O_} data={inventory}/>)}
+        </div>
       </div>
 
     </section>
@@ -47,6 +52,7 @@ function ProductOnly({ data }) {
 }
 
 ProductOnly.propTypes = {
+
   data: propTypes.shape({
     B1_TXTPRO2: propTypes.string,
     ZTD_NOME: propTypes.string,
@@ -57,6 +63,7 @@ ProductOnly.propTypes = {
     B2_QATU: propTypes.number,
     B1_TXTPROD: propTypes.string,
   }).isRequired,
+
 };
 
 export default ProductOnly;
